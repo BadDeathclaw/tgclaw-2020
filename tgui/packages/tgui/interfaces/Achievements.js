@@ -16,9 +16,9 @@ export const Achievement = props => {
       <td style={{ 'vertical-align': 'top' }}>
         <h1>{name}</h1>
         {desc}
-        <Box color={value ? 'good' : 'bad'}>
-          {value ? 'Unlocked' : 'Locked'}
-        </Box>
+        <Box
+          color={value ? 'good' : 'bad'}
+          content={value ? 'Unlocked' : 'Locked'} />
       </td>
     </tr>
   );
@@ -39,9 +39,9 @@ export const Score = props => {
       <td style={{ 'vertical-align': 'top' }}>
         <h1>{name}</h1>
         {desc}
-        <Box color={value > 0 ? 'good' : 'bad'}>
-          {value > 0 ? `Earned ${value} times` : 'Locked'}
-        </Box>
+        <Box
+          color={value > 0 ? 'good' : 'bad'}
+          content={value > 0 ? `Earned ${value} times` : 'Locked'} />
       </td>
     </tr>
   );

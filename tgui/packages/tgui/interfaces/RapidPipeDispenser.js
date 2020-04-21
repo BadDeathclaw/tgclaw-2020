@@ -93,12 +93,10 @@ export const RapidPipeDispenser = props => {
           </LabeledList.Item>
           <LabeledList.Item
             label="Color">
-            <Box
-              inline
+            <Box inline
               width="64px"
-              color={PAINT_COLORS[selected_color]}>
-              {selected_color}
-            </Box>
+              color={PAINT_COLORS[selected_color]}
+              content={selected_color} />
             {Object.keys(PAINT_COLORS)
               .map(colorName => (
                 <ColorBox

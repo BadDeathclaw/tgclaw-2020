@@ -2,7 +2,6 @@ html, body {
   box-sizing: border-box;
   height: 100%;
   margin: 0;
-  font-size: 12px;
 }
 
 html {
@@ -13,6 +12,7 @@ html {
 body {
   overflow: auto;
   font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px;
 }
 
 *, *:before, *:after {

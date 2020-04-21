@@ -77,9 +77,7 @@
 	var/datum/action/innate/imaginary_hide/hide
 
 /mob/camera/imaginary_friend/Login()
-	. = ..()
-	if(!. || !client)
-		return FALSE
+	..()
 	greet()
 	Show()
 

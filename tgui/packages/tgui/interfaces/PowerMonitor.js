@@ -57,18 +57,16 @@ export class PowerMonitor extends Component {
                     value={supply}
                     minValue={0}
                     maxValue={maxValue}
-                    color="teal">
-                    {toFixed(supply / 1000) + ' kW'}
-                  </ProgressBar>
+                    color="teal"
+                    content={toFixed(supply / 1000) + ' kW'} />
                 </LabeledList.Item>
                 <LabeledList.Item label="Draw">
                   <ProgressBar
                     value={demand}
                     minValue={0}
                     maxValue={maxValue}
-                    color="pink">
-                    {toFixed(demand / 1000) + ' kW'}
-                  </ProgressBar>
+                    color="pink"
+                    content={toFixed(demand / 1000) + ' kW'} />
                 </LabeledList.Item>
               </LabeledList>
             </Section>

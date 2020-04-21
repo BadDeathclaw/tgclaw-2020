@@ -422,11 +422,9 @@
 	alpha = 200 //Mappers can also just set this to 255 if they want curtains that can't be seen through
 	layer = SIGN_LAYER
 	anchored = TRUE
-	opacity = FALSE
+	opacity = 0
 	density = FALSE
 	var/open = TRUE
-	/// if it can be seen through when closed
-	var/opaque_closed = FALSE
 
 /obj/structure/curtain/proc/toggle()
 	open = !open
@@ -438,14 +436,12 @@
 		layer = WALL_OBJ_LAYER
 		density = TRUE
 		open = FALSE
-		if(opaque_closed)
-			opacity = TRUE
+
 	else
 		icon_state = "[icon_type]-open"
 		layer = SIGN_LAYER
 		density = FALSE
 		open = TRUE
-		opacity = FALSE
 
 /obj/structure/curtain/attackby(obj/item/W, mob/user)
 	if (istype(W, /obj/item/toy/crayon))
@@ -500,18 +496,3 @@
 	icon_state = "bounty-open"
 	color = null
 	alpha = 255
-	opaque_closed = TRUE
-
-/obj/structure/curtain/cloth/
-	color = null
-	alpha = 255
-	opaque_closed = TRUE
-
-/obj/structure/curtain/cloth/deconstruct(disassembled = TRUE)
-	new /obj/item/stack/sheet/cloth (loc, 4)
-	new /obj/item/stack/rods (loc, 1)
-	qdel(src)
-
-/obj/structure/curtain/cloth/fancy
-	icon_type = "cur_fancy"
-	icon_state = "cur_fancy-open"

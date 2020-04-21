@@ -176,23 +176,23 @@
 	power.panel = "Genetic"
 	owner.AddSpell(power)
 	return TRUE
-
+	
 // Runs through all the coefficients and uses this to determine which chromosomes the
 // mutation can take. Stores these as text strings in a list.
 /datum/mutation/human/proc/update_valid_chromosome_list()
 	valid_chrom_list.Cut()
-
+	
 	if(can_chromosome == CHROMOSOME_NEVER)
 		valid_chrom_list += "none"
 		return
-
-	valid_chrom_list += "Reinforcement"
-
+	
+	valid_chrom_list += "reinforcement"
+	
 	if(stabilizer_coeff != -1)
-		valid_chrom_list += "Stabilizer"
+		valid_chrom_list += "stabilizer"
 	if(synchronizer_coeff != -1)
-		valid_chrom_list += "Synchronizer"
+		valid_chrom_list += "synchronizer"
 	if(power_coeff != -1)
-		valid_chrom_list += "Power"
+		valid_chrom_list += "power"
 	if(energy_coeff != -1)
-		valid_chrom_list += "Energetic"
+		valid_chrom_list += "energetic"

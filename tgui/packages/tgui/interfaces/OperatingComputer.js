@@ -57,17 +57,19 @@ export const OperatingComputer = props => {
                     value={patient.health}
                     minValue={patient.minHealth}
                     maxValue={patient.maxHealth}
-                    color={patient.health >= 0 ? 'good' : 'average'}>
-                    <AnimatedNumber value={patient.health} />
-                  </ProgressBar>
+                    color={patient.health >= 0 ? 'good' : 'average'}
+                    content={(
+                      <AnimatedNumber value={patient.health} />
+                    )} />
                 </LabeledList.Item>
                 {damageTypes.map(type => (
                   <LabeledList.Item key={type.type} label={type.label}>
                     <ProgressBar
                       value={patient[type.type] / patient.maxHealth}
-                      color="bad">
-                      <AnimatedNumber value={patient[type.type]} />
-                    </ProgressBar>
+                      color="bad"
+                      content={(
+                        <AnimatedNumber value={patient[type.type]} />
+                      )} />
                   </LabeledList.Item>
                 ))}
               </LabeledList>

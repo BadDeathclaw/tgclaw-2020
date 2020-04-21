@@ -22,7 +22,8 @@ export const Gateway = props => {
     );
   }
 
-  if (current_target) {
+  if (current_target)
+  {
     return (
       <Section title={current_target.name} textAlign="center">
         <Icon name="rainbow" size={4} color="green" />
@@ -36,15 +37,12 @@ export const Gateway = props => {
   }
 
   if (!destinations.length) {
-    return (
-      <Section>
-        No gateway nodes detected.
-      </Section>
-    );
+    return (<Section>No gateway nodes detected.</Section>);
   }
 
-  const renderGatewayDest = dest => {
-    if (dest.availible) {
+  const GatewayDest = dest => {
+    if (dest.availible)
+    {
       return (
         <Section
           key={dest.ref}
@@ -52,40 +50,29 @@ export const Gateway = props => {
           textAlign="center">
           <Button
             fluid
-            onClick={() => act('activate', {
-              destination: dest.ref,
-            })}>
+            onClick={() => act("activate", { "destination": dest.ref })}>
             Activate
           </Button>
-        </Section>
-      );
+        </Section>);
     }
-    return (
-      <Section
-        textAlign="center"
-        key={dest.ref}
-        title={dest.name}>
-        <Box m={1} textColor="bad">
-          {dest.reason}
-        </Box>
-        {!!dest.timeout && (
-          <ProgressBar
-            value={dest.timeout}>
-            Calibrating...
-          </ProgressBar>
-        )}
-      </Section>
-    );
+    else
+    {
+      return (
+        <Section
+          textAlign="center"
+          key={dest.ref}
+          title={dest.name}>
+          <Box m={1} textColor="bad">{dest.reason}</Box>
+          {!!dest.timeout && (<ProgressBar
+            value={dest.timeout}
+            content="Calibrating..." />)}
+        </Section>);
+    }
   };
 
   return (
     <Fragment>
-      {!gateway_status && (
-        <NoticeBox>
-          Gateway Unpowered
-        </NoticeBox>
-      )}
-      {destinations.map(renderGatewayDest)}
-    </Fragment>
-  );
+      {!gateway_status && (<NoticeBox>Gateway Unpowered</NoticeBox>)}
+      {destinations.map(GatewayDest)}
+    </Fragment>);
 };

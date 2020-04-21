@@ -205,7 +205,6 @@ GLOBAL_DATUM_INIT(acid_overlay, /mutable_appearance, mutable_appearance('icons/e
 		SSfire_burning.processing[src] = src
 		add_overlay(GLOB.fire_overlay, TRUE)
 		return 1
-	return ..()
 
 ///called when the obj is destroyed by fire
 /obj/proc/burn()

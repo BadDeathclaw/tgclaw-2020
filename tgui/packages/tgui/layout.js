@@ -36,7 +36,7 @@ export class Layout extends Component {
   render() {
     const { props } = this;
     const { state, dispatch } = props;
-    const { config, debugLayout } = state;
+    const { config } = state;
     const route = getRoute(state);
     const { scrollable, resizable, theme } = route || {};
     let contentElement;
@@ -86,11 +86,7 @@ export class Layout extends Component {
               winset(config.window, 'is-visible', false);
               runCommand(`uiclose ${config.ref}`);
             }} />
-          <div
-            className={classes([
-              'Layout__rest',
-              debugLayout && 'debug-layout',
-            ])}>
+          <div className="Layout__rest">
             {contentElement}
             {showDimmer && (
               <div className="Layout__dimmer" />

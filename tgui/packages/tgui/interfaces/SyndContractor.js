@@ -113,7 +113,10 @@ export const SyndContractor = props => {
     <Dimmer>
       <Box
         backgroundColor="red"
-        minHeight="150px">
+        minHeight="150px"
+        mt={30}
+        ml={15}
+        mr={15}>
         <Table m={1}>
           <Table.Row>
             <Table.Cell collapsing fontSize="100px">

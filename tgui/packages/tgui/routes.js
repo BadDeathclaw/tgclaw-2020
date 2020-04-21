@@ -43,7 +43,6 @@ import { CrewConsole } from './interfaces/CrewConsole';
 import { Cryo } from './interfaces/Cryo';
 import { DecalPainter } from './interfaces/DecalPainter';
 import { DisposalUnit } from './interfaces/DisposalUnit';
-import { DnaConsole } from './interfaces/DnaConsole';
 import { DnaVault } from './interfaces/DnaVault';
 import { EightBallVote } from './interfaces/EightBallVote';
 import { Electropack } from './interfaces/Electropack';
@@ -77,12 +76,11 @@ import { NaniteProgrammer } from './interfaces/NaniteProgrammer';
 import { NaniteRemote } from './interfaces/NaniteRemote';
 import { NotificationPreferences } from './interfaces/NotificationPreferences';
 import { NtnetRelay } from './interfaces/NtnetRelay';
-import { NtosArcade } from './interfaces/NtosArcade';
 import { NtosAtmos } from './interfaces/NtosAtmos';
+import { NtosArcade } from './interfaces/NtosArcade';
 import { NtosCard } from './interfaces/NtosCard';
 import { NtosConfiguration } from './interfaces/NtosConfiguration';
 import { NtosCrewManifest } from './interfaces/NtosCrewManifest';
-import { NtosCyborgRemoteMonitor } from './interfaces/NtosCyborgRemoteMonitor';
 import { NtosFileManager } from './interfaces/NtosFileManager';
 import { NtosJobManager } from './interfaces/NtosJobManager';
 import { NtosMain } from './interfaces/NtosMain';
@@ -91,8 +89,6 @@ import { NtosNetDos } from './interfaces/NtosNetDos';
 import { NtosNetDownloader } from './interfaces/NtosNetDownloader';
 import { NtosNetMonitor } from './interfaces/NtosNetMonitor';
 import { NtosRevelation } from './interfaces/NtosRevelation';
-import { NtosRoboControl } from './interfaces/NtosRoboControl';
-import { NtosShipping } from './interfaces/NtosShipping';
 import { NtosSupermatterMonitor } from './interfaces/NtosSupermatterMonitor';
 import { NtosWrapper } from './interfaces/NtosWrapper';
 import { NuclearBomb } from './interfaces/NuclearBomb';
@@ -488,12 +484,6 @@ const ROUTES = {
     scrollable: true,
     theme: 'ntos',
   },
-  ntos_cyborg_monitor: {
-    component: () => NtosCyborgRemoteMonitor,
-    wrapper: () => NtosWrapper,
-    scrollable: true,
-    theme: 'ntos',
-  },
   ntos_file_manager: {
     component: () => NtosFileManager,
     wrapper: () => NtosWrapper,
@@ -547,18 +537,6 @@ const ROUTES = {
     wrapper: () => NtosWrapper,
     scrollable: false,
     theme: 'syndicate',
-  },
-  ntos_robocontrol: {
-    component: () => NtosRoboControl,
-    wrapper: () => NtosWrapper,
-    scrollable: true,
-    theme: 'ntos',
-  },
-  ntos_shipping: {
-    component: () => NtosShipping,
-    wrapper: () => NtosWrapper,
-    scrollable: true,
-    theme: 'ntos',
   },
   ntos_station_alert: {
     component: () => StationAlertConsole,
@@ -753,10 +731,6 @@ const ROUTES = {
   wires: {
     component: () => Wires,
     scrollable: false,
-  },
-  scan_consolenew: {
-    component: () => DnaConsole,
-    scrollable: true,
   },
 };
 

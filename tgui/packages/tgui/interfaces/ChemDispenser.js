@@ -37,9 +37,8 @@ export const ChemDispenser = props => {
         <LabeledList>
           <LabeledList.Item label="Energy">
             <ProgressBar
-              value={data.energy / data.maxEnergy}>
-              {toFixed(data.energy) + ' units'}
-            </ProgressBar>
+              value={data.energy / data.maxEnergy}
+              content={toFixed(data.energy) + ' units'} />
           </LabeledList.Item>
         </LabeledList>
       </Section>
@@ -80,8 +79,7 @@ export const ChemDispenser = props => {
         )}>
         <Box mr={-1}>
           {recipes.map(recipe => (
-            <Button
-              key={recipe.name}
+            <Button key={recipe.name}
               icon="tint"
               width="129.5px"
               lineHeight="21px"
@@ -101,8 +99,7 @@ export const ChemDispenser = props => {
         title="Dispense"
         buttons={(
           beakerTransferAmounts.map(amount => (
-            <Button
-              key={amount}
+            <Button key={amount}
               icon="plus"
               selected={amount === data.amount}
               content={amount}
@@ -113,8 +110,7 @@ export const ChemDispenser = props => {
         )}>
         <Box mr={-1}>
           {data.chemicals.map(chemical => (
-            <Button
-              key={chemical.id}
+            <Button key={chemical.id}
               icon="tint"
               width="129.5px"
               lineHeight="21px"
@@ -129,8 +125,7 @@ export const ChemDispenser = props => {
         title="Beaker"
         buttons={(
           beakerTransferAmounts.map(amount => (
-            <Button
-              key={amount}
+            <Button key={amount}
               icon="minus"
               disabled={recording}
               content={amount}

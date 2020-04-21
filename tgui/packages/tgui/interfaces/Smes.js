@@ -1,43 +1,36 @@
 import { Fragment } from 'inferno';
 import { useBackend } from '../backend';
-import { Box, Button, Flex, LabeledList, ProgressBar, Section, Slider } from '../components';
-import { formatPower } from '../format';
-
-// Common power multiplier
-const POWER_MUL = 1e3;
+import { Box, Button, NumberInput, LabeledList, ProgressBar, Section } from '../components';
 
 export const Smes = props => {
   const { act, data } = useBackend(props);
-  const {
-    capacityPercent,
-    capacity,
-    charge,
-    inputAttempt,
-    inputting,
-    inputLevel,
-    inputLevelMax,
-    inputAvailable,
-    outputAttempt,
-    outputting,
-    outputLevel,
-    outputLevelMax,
-    outputUsed,
-  } = data;
-  const inputState = (
-    capacityPercent >= 100 && 'good'
-    || inputting && 'average'
-    || 'bad'
-  );
-  const outputState = (
-    outputting && 'good'
-    || charge > 0 && 'average'
-    || 'bad'
-  );
+
+  let inputState;
+  if (data.capacityPercent >= 100) {
+    inputState = 'good';
+  }
+  else if (data.inputting) {
+    inputState = 'average';
+  }
+  else {
+    inputState = 'bad';
+  }
+  let outputState;
+  if (data.outputting) {
+    outputState = 'good';
+  }
+  else if (data.charge > 0) {
+    outputState = 'average';
+  }
+  else {
+    outputState = 'bad';
+  }
+
   return (
     <Fragment>
       <Section title="Stored Energy">
         <ProgressBar
-          value={capacityPercent * 0.01}
+          value={data.capacityPercent * 0.01}
           ranges={{
             good: [0.5, Infinity],
             average: [0.15, 0.5],
@@ -50,65 +43,64 @@ export const Smes = props => {
             label="Charge Mode"
             buttons={
               <Button
-                icon={inputAttempt ? 'sync-alt' : 'times'}
-                selected={inputAttempt}
+                icon={data.inputAttempt ? 'sync-alt' : 'times'}
+                selected={data.inputAttempt}
                 onClick={() => act('tryinput')}>
-                {inputAttempt ? 'Auto' : 'Off'}
+                {data.inputAttempt ? 'Auto' : 'Off'}
               </Button>
             }>
             <Box color={inputState}>
-              {capacityPercent >= 100 && 'Fully Charged'
-                || inputting && 'Charging'
-                || 'Not Charging'}
+              {data.capacityPercent >= 100
+                ? 'Fully Charged'
+                : data.inputting
+                  ? 'Charging'
+                  : 'Not Charging'}
             </Box>
           </LabeledList.Item>
           <LabeledList.Item label="Target Input">
-            <Flex inline width="100%">
-              <Flex.Item>
-                <Button
-                  icon="fast-backward"
-                  disabled={inputLevel === 0}
-                  onClick={() => act('input', {
-                    target: 'min',
-                  })} />
-                <Button
-                  icon="backward"
-                  disabled={inputLevel === 0}
-                  onClick={() => act('input', {
-                    adjust: -10000,
-                  })} />
-              </Flex.Item>
-              <Flex.Item grow={1} mx={1}>
-                <Slider
-                  value={inputLevel / POWER_MUL}
-                  fillValue={inputAvailable / POWER_MUL}
-                  minValue={0}
-                  maxValue={inputLevelMax / POWER_MUL}
-                  step={5}
-                  stepPixelSize={4}
-                  format={value => formatPower(value * POWER_MUL, 1)}
-                  onDrag={(e, value) => act('input', {
-                    target: value * POWER_MUL,
-                  })} />
-              </Flex.Item>
-              <Flex.Item>
-                <Button
-                  icon="forward"
-                  disabled={inputLevel === inputLevelMax}
-                  onClick={() => act('input', {
-                    adjust: 10000,
-                  })} />
-                <Button
-                  icon="fast-forward"
-                  disabled={inputLevel === inputLevelMax}
-                  onClick={() => act('input', {
-                    target: 'max',
-                  })} />
-              </Flex.Item>
-            </Flex>
+            <ProgressBar
+              value={data.inputLevel/data.inputLevelMax}
+              content={data.inputLevel_text} />
+          </LabeledList.Item>
+          <LabeledList.Item label="Adjust Input">
+            <Button
+              icon="fast-backward"
+              disabled={data.inputLevel === 0}
+              onClick={() => act('input', {
+                target: 'min',
+              })} />
+            <Button
+              icon="backward"
+              disabled={data.inputLevel === 0}
+              onClick={() => act('input', {
+                adjust: -10000,
+              })} />
+            <NumberInput
+              value={Math.round(data.inputLevel/1000)}
+              unit="kW"
+              width="65px"
+              minValue={0}
+              maxValue={data.inputLevelMax/1000}
+              onChange={(e, value) => {
+                return act('input', {
+                  target: value*1000,
+                });
+              }} />
+            <Button
+              icon="forward"
+              disabled={data.inputLevel === data.inputLevelMax}
+              onClick={() => act('input', {
+                adjust: 10000,
+              })} />
+            <Button
+              icon="fast-forward"
+              disabled={data.inputLevel === data.inputLevelMax}
+              onClick={() => act('input', {
+                target: 'max',
+              })} />
           </LabeledList.Item>
           <LabeledList.Item label="Available">
-            {formatPower(inputAvailable)}
+            {data.inputAvailable}
           </LabeledList.Item>
         </LabeledList>
       </Section>
@@ -118,66 +110,64 @@ export const Smes = props => {
             label="Output Mode"
             buttons={
               <Button
-                icon={outputAttempt ? 'power-off' : 'times'}
-                selected={outputAttempt}
+                icon={data.outputAttempt ? 'power-off' : 'times'}
+                selected={data.outputAttempt}
                 onClick={() => act('tryoutput')}>
-                {outputAttempt ? 'On' : 'Off'}
+                {data.outputAttempt ? 'On' : 'Off'}
               </Button>
             }>
             <Box color={outputState}>
-              {outputting
+              {data.outputting
                 ? 'Sending'
-                : charge > 0
+                : data.charge > 0
                   ? 'Not Sending'
                   : 'No Charge'}
             </Box>
           </LabeledList.Item>
           <LabeledList.Item label="Target Output">
-            <Flex inline width="100%">
-              <Flex.Item>
-                <Button
-                  icon="fast-backward"
-                  disabled={outputLevel === 0}
-                  onClick={() => act('output', {
-                    target: 'min',
-                  })} />
-                <Button
-                  icon="backward"
-                  disabled={outputLevel === 0}
-                  onClick={() => act('output', {
-                    adjust: -10000,
-                  })} />
-              </Flex.Item>
-              <Flex.Item grow={1} mx={1}>
-                <Slider
-                  value={outputLevel / POWER_MUL}
-                  minValue={0}
-                  maxValue={outputLevelMax / POWER_MUL}
-                  step={5}
-                  stepPixelSize={4}
-                  format={value => formatPower(value * POWER_MUL, 1)}
-                  onDrag={(e, value) => act('output', {
-                    target: value * POWER_MUL,
-                  })} />
-              </Flex.Item>
-              <Flex.Item>
-                <Button
-                  icon="forward"
-                  disabled={outputLevel === outputLevelMax}
-                  onClick={() => act('output', {
-                    adjust: 10000,
-                  })} />
-                <Button
-                  icon="fast-forward"
-                  disabled={outputLevel === outputLevelMax}
-                  onClick={() => act('output', {
-                    target: 'max',
-                  })} />
-              </Flex.Item>
-            </Flex>
+            <ProgressBar
+              value={data.outputLevel/data.outputLevelMax}
+              content={data.outputLevel_text} />
+          </LabeledList.Item>
+          <LabeledList.Item label="Adjust Output">
+            <Button
+              icon="fast-backward"
+              disabled={data.outputLevel === 0}
+              onClick={() => act('output', {
+                target: 'min',
+              })} />
+            <Button
+              icon="backward"
+              disabled={data.outputLevel === 0}
+              onClick={() => act('output', {
+                adjust: -10000,
+              })} />
+            <NumberInput
+              value={Math.round(data.outputLevel/1000)}
+              unit="kW"
+              width="65px"
+              minValue={0}
+              maxValue={data.outputLevelMax/1000}
+              onChange={(e, value) => {
+                return act('output', {
+                  target: value*1000,
+                });
+              }} />
+            <Button
+              icon="forward"
+              disabled={data.outputLevel === data.outputLevelMax}
+              onClick={() => act('output', {
+                adjust: 10000,
+              })} />
+            <Button
+              icon="fast-forward"
+              disabled={data.outputLevel === data.outputLevelMax}
+              onClick={() => act('output', {
+                target: 'max',
+              })} />
           </LabeledList.Item>
           <LabeledList.Item label="Outputting">
-            {formatPower(outputUsed)}
+            {data.outputUsed}
           </LabeledList.Item>
         </LabeledList>
       </Section>

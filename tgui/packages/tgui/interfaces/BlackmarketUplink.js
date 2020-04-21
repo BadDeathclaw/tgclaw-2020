@@ -12,13 +12,15 @@ export const BlackmarketUplink = props => {
   const items = data.items || {};
 
   const shipmentSelector = !!data.buying && (
-    <Dimmer textAlign="center">
-      <Grid>
+    <Dimmer
+      textAlign="center">
+      <Grid mt={20}>
         {map(deliveryMethod => {
           const name = deliveryMethod.name;
           if (name === "LTSRBT" && !data.ltsrbt_built) {
             return null;
           }
+
           return (
             <Grid.Column
               textAlign="center"
@@ -105,7 +107,7 @@ export const BlackmarketUplink = props => {
                     </Table.Cell>
                     <Table.Cell collapsing textAlign="right">
                       <Button
-                        content="Buy"
+                        content={'Buy'}
                         disabled={!item.amount || item.cost > data.money}
                         onClick={() => act('select', {
                           item: item.id,

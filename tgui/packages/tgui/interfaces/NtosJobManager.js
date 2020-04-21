@@ -26,7 +26,8 @@ export const NtosJobManager = props => {
           <Box
             bold
             textAlign="center"
-            fontSize="20px">
+            fontSize="20px"
+            mt={10}>
             On Cooldown: {cooldown}s
           </Box>
         </Dimmer>

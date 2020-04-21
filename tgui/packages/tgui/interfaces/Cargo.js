@@ -60,9 +60,7 @@ export const Cargo = props => {
                   disabled={!(data.away && data.docked)}
                   onClick={() => act(ref, 'loan')} />
               ) : (
-                <Box color="bad">
-                  Loaned to Centcom
-                </Box>
+                <Box color="bad">Loaned to Centcom</Box>
               )}
             </LabeledList.Item>
           ) : ''}
@@ -160,8 +158,7 @@ const Catalog = props => {
               )}
             </td>
             <td className="LabeledList__cell LabeledList__buttons">
-              <Button
-                fluid
+              <Button fluid
                 content={(data.self_paid
                   ? Math.round(pack.cost * 1.1)
                   : pack.cost) + ' credits'}

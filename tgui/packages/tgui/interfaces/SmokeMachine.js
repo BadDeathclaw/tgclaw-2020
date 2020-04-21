@@ -35,14 +35,13 @@ export const SmokeMachine = props => {
         <Box mt={1}>
           <LabeledList>
             <LabeledList.Item label="Range">
-              {[1, 2, 3, 4, 5].map(amount => (
-                <Button
-                  key={amount}
+              { [1, 2, 3, 4, 5].map(amount => (
+                <Button key={amount}
                   selected={setting === amount}
                   icon="plus"
                   content={amount * 3}
                   disabled={maxSetting < amount}
-                  onClick={() => act('setting', { amount })} />
+                  onClick={() => act('setting', { amount: amount })} />
               ))}
             </LabeledList.Item>
           </LabeledList>

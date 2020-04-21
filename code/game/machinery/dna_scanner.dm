@@ -15,7 +15,6 @@
 	var/precision_coeff
 	var/message_cooldown
 	var/breakout_time = 1200
-	var/obj/machinery/computer/scan_consolenew/linked_console = null
 
 /obj/machinery/dna_scannernew/RefreshParts()
 	scan_level = 0
@@ -98,8 +97,9 @@
 
 	// DNA manipulators cannot operate on severed heads or brains
 	if(iscarbon(occupant))
-		if(linked_console)
-			linked_console.on_scanner_close()
+		var/obj/machinery/computer/scan_consolenew/console = locate_computer(/obj/machinery/computer/scan_consolenew)
+		if(console)
+			console.on_scanner_close()
 
 	return TRUE
 
@@ -108,9 +108,6 @@
 		return FALSE
 
 	..()
-
-	if(linked_console)
-		linked_console.on_scanner_open()
 
 	return TRUE
 
@@ -150,7 +147,7 @@
 /obj/item/disk/data
 	name = "DNA data disk"
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
-	var/list/genetic_makeup_buffer = list()
+	var/list/fields = list()
 	var/list/mutations = list()
 	var/max_mutations = 6
 	var/read_only = FALSE //Well,it's still a floppy disk

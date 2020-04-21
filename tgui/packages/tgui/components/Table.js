@@ -1,66 +1,55 @@
 import { classes, pureComponentHooks } from 'common/react';
-import { Box, computeBoxClassName, computeBoxProps } from './Box';
+import { Box } from './Box';
 
 export const Table = props => {
-  const {
-    className,
-    collapsing,
-    children,
-    ...rest
-  } = props;
+  const { collapsing, className, content, children, ...rest } = props;
   return (
-    <table
+    <Box
+      as="table"
       className={classes([
         'Table',
         collapsing && 'Table--collapsing',
         className,
-        computeBoxClassName(rest),
       ])}
-      {...computeBoxProps(rest)}>
+      {...rest}>
       <tbody>
+        {content}
         {children}
       </tbody>
-    </table>
+    </Box>
   );
 };
 
 Table.defaultHooks = pureComponentHooks;
 
 export const TableRow = props => {
-  const {
-    className,
-    header,
-    ...rest
-  } = props;
+  const { className, header, ...rest } = props;
   return (
-    <tr
+    <Box
+      as="tr"
       className={classes([
         'Table__row',
         header && 'Table__row--header',
-        computeBoxClassName(props),
+        className,
       ])}
-      {...computeBoxProps(rest)} />
+      {...rest} />
   );
 };
 
 TableRow.defaultHooks = pureComponentHooks;
 
 export const TableCell = props => {
-  const {
-    className,
-    collapsing,
-    header,
-    ...rest
-  } = props;
+  const { className, collapsing, header, ...rest } = props;
   return (
-    <td
+    <Box
+      as="td"
       className={classes([
         'Table__cell',
         collapsing && 'Table__cell--collapsing',
         header && 'Table__cell--header',
-        computeBoxClassName(props),
+        className,
       ])}
-      {...computeBoxProps(rest)} />
+      {...rest} />
   );
 };
 
