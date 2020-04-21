@@ -7119,6 +7119,17 @@
 	icon_state = "yellowfull"
 	},
 /area/space)
+"uu" = (
+/obj/structure/barricade/wooden/crude{
+	icon_state = "woodenbarricade-old";
+	dir = 8
+	},
+/turf/open/floor/plating/ground/snow,
+/turf/closed/wall/f13/wood/painted{
+	icon_state = "girder-b";
+	dir = 8
+	},
+/area/space)
 "uv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -7281,6 +7292,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
 	icon_state = "yellowfull"
+	},
+/area/space)
+"uQ" = (
+/obj/structure/sign/poster/ripped,
+/turf/open/floor/wood/f13/old{
+	icon_state = "housewood2"
+	},
+/turf/closed/wall/f13/wood/painted{
+	icon_state = "girder-middle";
+	dir = 8
 	},
 /area/space)
 "uR" = (
@@ -7447,6 +7468,14 @@
 	},
 /turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite{
 	icon_state = "yellowfull"
+	},
+/area/space)
+"vn" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plastic,
+/turf/closed/wall/f13/wood/painted{
+	icon_state = "girder-middle";
+	dir = 8
 	},
 /area/space)
 "vo" = (
@@ -8554,6 +8583,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/f13/inside,
 /area/space)
+"xY" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plastic,
+/turf/closed/wall/f13/wood/painted{
+	icon_state = "girder-end";
+	dir = 8
+	},
+/area/space)
 "xZ" = (
 /obj/effect/turf_decal/weather/snow/corner,
 /obj/effect/decal/cleanable/dirt,
@@ -9288,6 +9325,12 @@
 /obj/structure/closet/crate/bin,
 /turf/open/floor/carpet/cyan,
 /area/space)
+"Ac" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/chair/wood,
+/obj/effect/landmark/start/f13/raider,
+/turf/open/f13/inside,
+/area/space)
 "Ad" = (
 /obj/structure/railing{
 	icon_state = "railing";
@@ -9351,6 +9394,12 @@
 /turf/open/floor/plating/ground/sidewalk/snow{
 	icon_state = "verticalleftborderleft0"
 	},
+/area/space)
+"Am" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed,
+/obj/effect/landmark/start/f13/raider,
+/turf/open/f13/inside,
 /area/space)
 "An" = (
 /obj/structure/table/wood,
@@ -9491,6 +9540,15 @@
 /turf/open/f13/inside{
 	icon_state = "carpet"
 	},
+/area/space)
+"AF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/chair/wood{
+	icon_state = "wooden_chair";
+	dir = 1
+	},
+/obj/effect/landmark/start/f13/raider,
+/turf/open/f13/inside,
 /area/space)
 "AG" = (
 /obj/structure/chair/wood{
@@ -10870,6 +10928,11 @@
 	icon_state = "innercornerpieceright"
 	},
 /area/space)
+"EB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start/f13/enforcer,
+/turf/open/f13/inside,
+/area/space)
 "EC" = (
 /turf/open/floor/wood/f13/old,
 /area/f13/desert)
@@ -11796,15 +11859,9 @@
 /turf/open/floor/plating/ground/snow,
 /area/f13/desert)
 "Hp" = (
-/obj/structure/barricade/wooden/crude{
-	icon_state = "woodenbarricade-old";
-	dir = 8
-	},
-/turf/open/floor/plating/ground/snow,
-/turf/closed/wall/f13/wood/painted{
-	icon_state = "girder-b";
-	dir = 8
-	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start/f13/boss,
+/turf/open/f13/inside,
 /area/space)
 "Hq" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -11866,16 +11923,6 @@
 /obj/effect/turf_decal/weather/dirt,
 /turf/open/floor/plating/ground/snow,
 /area/f13/desert)
-"Hz" = (
-/obj/structure/sign/poster/ripped,
-/turf/open/floor/wood/f13/old{
-	icon_state = "housewood2"
-	},
-/turf/closed/wall/f13/wood/painted{
-	icon_state = "girder-middle";
-	dir = 8
-	},
-/area/space)
 "HA" = (
 /obj/structure/flora/tree/pine,
 /turf/open/floor/plating/ground/snow,
@@ -11893,22 +11940,6 @@
 	dir = 4
 	},
 /turf/open/floor/plating/dirt,
-/area/space)
-"HD" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plastic,
-/turf/closed/wall/f13/wood/painted{
-	icon_state = "girder-middle";
-	dir = 8
-	},
-/area/space)
-"HE" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plastic,
-/turf/closed/wall/f13/wood/painted{
-	icon_state = "girder-end";
-	dir = 8
-	},
 /area/space)
 "HF" = (
 /obj/structure/fence/fencecorner{
@@ -118238,7 +118269,7 @@ gG
 ik
 it
 iB
-Hz
+uQ
 bG
 br
 lc
@@ -125446,7 +125477,7 @@ cS
 bx
 bx
 kB
-HD
+vn
 ad
 ad
 ad
@@ -125703,7 +125734,7 @@ da
 bo
 iS
 kD
-HE
+xY
 ad
 ad
 ad
@@ -132199,7 +132230,7 @@ re
 Yw
 AI
 AI
-QR
+AF
 nh
 ne
 qV
@@ -132453,7 +132484,7 @@ sQ
 rU
 qV
 re
-Yw
+Ac
 AI
 AI
 QR
@@ -133382,7 +133413,7 @@ FB
 ad
 FB
 ad
-Hp
+uu
 lM
 ez
 iD
@@ -133995,12 +134026,12 @@ at
 ib
 jO
 IZ
-GK
+Am
 re
 GK
-GK
+Am
 re
-GK
+Am
 qV
 ad
 ad
@@ -134511,10 +134542,10 @@ jO
 IZ
 GK
 re
-GK
+Am
 GK
 re
-GK
+Am
 qV
 ad
 ad
@@ -135023,7 +135054,7 @@ at
 ib
 jO
 IZ
-GK
+Am
 re
 re
 re
@@ -195166,7 +195197,7 @@ re
 re
 xG
 Qz
-re
+Hp
 re
 qV
 ab
@@ -196963,7 +196994,7 @@ qV
 ab
 PF
 re
-re
+EB
 Kf
 re
 re
