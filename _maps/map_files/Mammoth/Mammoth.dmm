@@ -9,16 +9,6 @@
 /obj/machinery/door/airlock/hatch,
 /turf/open/floor/plasteel/f13/vault_floor/dark,
 /area/f13/underground/mountain)
-"aad" = (
-/obj/structure/fence{
-	icon_state = "straight";
-	dir = 8
-	},
-/obj/item/sign_backing{
-	icon_state = "explosives2"
-	},
-/turf/open/floor/plating/ground/snow,
-/area/f13/desert)
 "aae" = (
 /turf/closed/mineral/random/f13,
 /area/f13/underground/mountain)
@@ -2673,12 +2663,6 @@
 	},
 /turf/open/floor/plasteel/f13/vault_floor/misc/cafeteria,
 /area/f13/klamat)
-"ajo" = (
-/obj/item/sign_backing{
-	icon_state = "restroom"
-	},
-/turf/closed/wall/rust,
-/area/f13/klamat)
 "ajq" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/closed/mineral/random/f13,
@@ -2983,9 +2967,6 @@
 "akP" = (
 /obj/structure/window/reinforced/fulltile,
 /obj/structure/grille,
-/obj/item/sign_backing{
-	icon_state = "bluecross2"
-	},
 /turf/open/floor/plasteel/f13/vault_floor/misc/rarewhite,
 /area/f13/klamat)
 "akQ" = (
@@ -11663,12 +11644,6 @@
 /obj/effect/turf_decal/weather/snow/corner,
 /turf/open/floor/plating/ground/mountain,
 /area/f13/underground/mountain)
-"aLu" = (
-/obj/item/sign_backing{
-	icon_state = "bluecross2"
-	},
-/turf/closed/wall/rust,
-/area/f13/klamat)
 "aLv" = (
 /obj/machinery/door/unpowered/wooddoor,
 /turf/open/floor/wood/f13/old,
@@ -14900,12 +14875,6 @@
 /obj/item/trash/raisins,
 /turf/open/floor/plasteel/white,
 /area/f13/prison)
-"aWn" = (
-/obj/item/sign_backing{
-	icon_state = "chemistry2"
-	},
-/turf/closed/wall/rust,
-/area/f13/klamat)
 "aWo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -119538,7 +119507,7 @@ are
 are
 are
 are
-are
+arb
 are
 aPH
 aaB
@@ -142312,7 +142281,7 @@ aTI
 aTI
 aKh
 aiz
-aad
+afD
 aiz
 aiz
 aiz
@@ -175207,10 +175176,10 @@ aah
 aah
 aah
 aah
-aLu
+aah
 aOk
 aOk
-aLu
+aah
 aah
 aah
 aah
@@ -177263,7 +177232,7 @@ aNR
 aah
 aif
 aif
-ajo
+aah
 aif
 aif
 aZL
@@ -178804,12 +178773,12 @@ aah
 aWM
 aif
 aWi
-aWn
+aah
 aif
 aif
 aSI
 aEH
-aLu
+aah
 aif
 aLT
 aMH
